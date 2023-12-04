@@ -3,9 +3,6 @@ import React from "react";
 function Character(props) {
   console.log("Character component has fired.");
   const { planets, person, toggle, onClick } = props;
-  // console.log(planets); // whole array called every time
-  // console.log(person); // single value called at every render
-
   const homePlanet = planets.find((planet) => planet.id === person.homeworld);
 
   return (
