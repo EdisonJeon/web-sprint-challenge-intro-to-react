@@ -1,13 +1,26 @@
-import React from 'react'
+import React from "react";
 
-function Character() { // ❗ Add the props
-  // ❗ Create a state to hold whether the homeworld is rendering or not
-  // ❗ Create a "toggle" click handler to show or remove the homeworld
+function Character(props) {
+  console.log("Character component has fired.");
+  const { planets, person, toggle, onClick } = props;
+  // console.log(planets); // whole array called every time
+  // console.log(person); // single value called at every render
+
+  const homePlanet = planets.find((planet) => planet.id === person.homeworld);
+
   return (
-    <div>
-      {/* Use the same markup with the same attributes as in the mock */}
+    <div className="character-card" onClick={() => onClick(person.id)}>
+      <h3 className="character-name">{person.name}</h3>
+      <p style={{ display: toggle[person.id] ? 'block' : 'none' }}>
+        Planet:
+        <span className="character-planet"> {homePlanet.name}</span>
+      </p>
     </div>
-  )
+  );
 }
 
-export default Character
+export default Character;
+
+/* p === planet:
+  span === {name of planet}
+*/
