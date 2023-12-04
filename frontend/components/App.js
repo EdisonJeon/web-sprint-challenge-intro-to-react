@@ -19,6 +19,12 @@ function App() {
         setPeople(res[1].data);
       })
       .catch((err) => console.error("Request failed with error --> ", err));
+
+    return () => {
+      console.log(
+        "here for future reference, useEffect structures have a cleanup function as so"
+      );
+    };
   }, []);
 
   const onClick = (id) => {
